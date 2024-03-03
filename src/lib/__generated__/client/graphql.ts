@@ -1,4 +1,5 @@
 /* eslint-disable */
+import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/core';
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
@@ -24,3 +25,11 @@ export type User = {
   __typename?: 'User';
   name?: Maybe<Scalars['String']['output']>;
 };
+
+export type All_UsersQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type All_UsersQuery = { __typename?: 'Query', users: Array<{ __typename?: 'User', name?: string | null }> };
+
+
+export const All_UsersDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"ALL_USERS"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"users"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"name"}}]}}]}}]} as unknown as DocumentNode<All_UsersQuery, All_UsersQueryVariables>;

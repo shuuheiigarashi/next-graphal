@@ -5,7 +5,7 @@ import { ApolloServer } from "@apollo/server";
 import { Resolvers } from "../../lib/__generated__/server/resolvers-types";
 
 const typeDefs = readFileSync(
-  join(process.cwd(), "lib/documents/schema.gql"),
+  join(process.cwd(), "src/lib/documents/schema.gql"),
   "utf-8"
 );
 
