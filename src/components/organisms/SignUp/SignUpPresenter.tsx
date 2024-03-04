@@ -1,28 +1,41 @@
 import { LabelOnInput } from "@/components/moleclues/LabelOnInput";
 import { Box, Button, Flex, Heading, VStack } from "@chakra-ui/react";
+import {
+  FieldValues,
+  SubmitHandler,
+  UseFormHandleSubmit,
+  UseFormRegister,
+} from "react-hook-form";
 
 interface SignUpPresenterProps {
-  handleSignUp: () => void;
+  handleSubmit: UseFormHandleSubmit<any>;
+  handleSignUp: SubmitHandler<any>;
+  register: UseFormRegister<FieldValues>;
 }
 
-export const SignUpPresenter = ({ handleSignUp }: SignUpPresenterProps) => {
+export const SignUpPresenter = ({
+  handleSubmit,
+  handleSignUp,
+  register,
+}: SignUpPresenterProps) => {
   return (
     <Flex height="100vh" justifyContent="center" alignItems="center">
       <VStack>
         <Heading>Sign Up</Heading>
-        <LabelOnInput label="name" labelFor="name" />
-        <LabelOnInput label="email" labelFor="email" />
-        <LabelOnInput label="password" labelFor="password" />
-        <Box m={4}>
-          <Button
-            colorScheme="blue"
-            p={4}
-            onClick={handleSignUp}
-            borderRadius={8}
-          >
-            Sign Up
-          </Button>
-        </Box>
+        <form onSubmit={handleSubmit(handleSignUp)}>
+          <LabelOnInput label="name" labelFor="name" register={register} />
+          <LabelOnInput label="email" labelFor="email" register={register} />
+          <LabelOnInput
+            label="password"
+            labelFor="password"
+            register={register}
+          />
+          <Box m={4} textAlign="center">
+            <Button colorScheme="blue" p={4} borderRadius={8} type="submit">
+              Sign Up
+            </Button>
+          </Box>
+        </form>
       </VStack>
     </Flex>
   );
