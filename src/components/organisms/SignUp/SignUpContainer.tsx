@@ -1,9 +1,18 @@
+import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import { SignUpPresenter } from "./SignUpPresenter";
 
 export const SignUpContainer = () => {
-  const handleSignUp = () => {
-    // TODO: 新規登録時の処理を書く
+  const { handleSubmit, register } = useForm<FieldValues>();
+
+  const handleSignUp: SubmitHandler<FieldValues> = (data) => {
+    console.log(data);
   };
 
-  return <SignUpPresenter handleSignUp={handleSignUp} />;
+  return (
+    <SignUpPresenter
+      handleSignUp={handleSignUp}
+      handleSubmit={handleSubmit}
+      register={register}
+    />
+  );
 };
