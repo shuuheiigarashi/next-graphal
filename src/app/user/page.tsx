@@ -1,14 +1,14 @@
 "use client";
-import styles from "./page.module.css";
-import WithApollo from "../components/functional/WithApollo";
+import { Box } from "@chakra-ui/react";
+import WithApollo from "../../components/functional/WithApollo";
 import { User } from "@/components/templates/User";
 
 export default function Home() {
   return (
-    <main className={styles.main}>
+    <Box margin="0 auto">
       <WithApollo>
         <User />
       </WithApollo>
-    </main>
+    </Box>
   );
 }
