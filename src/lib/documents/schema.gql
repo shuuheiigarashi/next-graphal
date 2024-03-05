@@ -32,6 +32,14 @@ mutation SignUpMutation(
   }
 }
 
+mutation SignIn($email: String!, $password: String!) {
+  signIn(email: $email, password: $password) {
+    email
+    password
+    id
+  }
+}
+
 type Mutation {
   signUp(name: String!, email: String!, password: String!): User
   signIn(email: String!, password: String!): User

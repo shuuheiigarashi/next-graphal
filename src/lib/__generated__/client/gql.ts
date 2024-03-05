@@ -13,7 +13,7 @@ import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/
  * Therefore it is highly recommended to use the babel or swc plugin for production.
  */
 const documents = {
-    "query ALL_USERS {\n  users {\n    name\n  }\n}\n\nmutation SignUpMutation($email: String!, $password: String!, $username: String!) {\n  signUp(email: $email, password: $password, name: $username) {\n    id\n    name\n    email\n    password\n  }\n}": types.All_UsersDocument,
+    "query ALL_USERS {\n  users {\n    name\n  }\n}\n\nmutation SignUpMutation($email: String!, $password: String!, $username: String!) {\n  signUp(email: $email, password: $password, name: $username) {\n    id\n    name\n    email\n    password\n  }\n}\n\nmutation SignIn($email: String!, $password: String!) {\n  signIn(email: $email, password: $password) {\n    email\n    password\n    id\n  }\n}": types.All_UsersDocument,
 };
 
 /**
@@ -33,7 +33,7 @@ export function gql(source: string): unknown;
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function gql(source: "query ALL_USERS {\n  users {\n    name\n  }\n}\n\nmutation SignUpMutation($email: String!, $password: String!, $username: String!) {\n  signUp(email: $email, password: $password, name: $username) {\n    id\n    name\n    email\n    password\n  }\n}"): (typeof documents)["query ALL_USERS {\n  users {\n    name\n  }\n}\n\nmutation SignUpMutation($email: String!, $password: String!, $username: String!) {\n  signUp(email: $email, password: $password, name: $username) {\n    id\n    name\n    email\n    password\n  }\n}"];
+export function gql(source: "query ALL_USERS {\n  users {\n    name\n  }\n}\n\nmutation SignUpMutation($email: String!, $password: String!, $username: String!) {\n  signUp(email: $email, password: $password, name: $username) {\n    id\n    name\n    email\n    password\n  }\n}\n\nmutation SignIn($email: String!, $password: String!) {\n  signIn(email: $email, password: $password) {\n    email\n    password\n    id\n  }\n}"): (typeof documents)["query ALL_USERS {\n  users {\n    name\n  }\n}\n\nmutation SignUpMutation($email: String!, $password: String!, $username: String!) {\n  signUp(email: $email, password: $password, name: $username) {\n    id\n    name\n    email\n    password\n  }\n}\n\nmutation SignIn($email: String!, $password: String!) {\n  signIn(email: $email, password: $password) {\n    email\n    password\n    id\n  }\n}"];
 
 export function gql(source: string) {
   return (documents as any)[source] ?? {};
