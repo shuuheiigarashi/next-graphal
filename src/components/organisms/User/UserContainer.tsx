@@ -1,5 +1,4 @@
-import { useQuery } from "@apollo/client";
-import { gql } from "../../../lib/__generated__/client";
+import { useQuery, gql } from "@apollo/client";
 import { UserPresenter } from "./UserPresenter";
 
 const ALL_USERS = gql(`query ALL_USERS {

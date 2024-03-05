@@ -7,11 +7,32 @@ type Query {
 }
 
 type User {
+  id: ID!
   name: String
+  email: String!
+  password: String!
 }
 
 query ALL_USERS {
   users {
     name
   }
+}
+
+mutation SignUpMutation(
+  $email: String!
+  $password: String!
+  $username: String!
+) {
+  signUp(email: $email, password: $password, name: $username) {
+    id
+    name
+    email
+    password
+  }
+}
+
+type Mutation {
+  signUp(name: String!, email: String!, password: String!): User
+  signIn(email: String!, password: String!): User
 }
