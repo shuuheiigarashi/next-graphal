@@ -11,12 +11,14 @@ interface SignInPresenterProps {
   handleSubmit: UseFormHandleSubmit<any>;
   handleSignIn: SubmitHandler<any>;
   register: UseFormRegister<FieldValues>;
+  loading: boolean;
 }
 
 export const SignInPresenter = ({
   handleSubmit,
   handleSignIn,
   register,
+  loading,
 }: SignInPresenterProps) => {
   return (
     <Flex height="100vh" justifyContent="center" alignItems="center">
@@ -30,7 +32,13 @@ export const SignInPresenter = ({
             register={register}
           />
           <Box m={4} textAlign="center">
-            <Button colorScheme="blue" p={4} borderRadius={8}>
+            <Button
+              colorScheme="blue"
+              p={4}
+              borderRadius={8}
+              type="submit"
+              isLoading={loading}
+            >
               Sign In
             </Button>
           </Box>
