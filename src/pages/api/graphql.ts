@@ -12,7 +12,7 @@ const typeDefs = readFileSync(
 const resolvers: Resolvers = {
   Query: {
     users() {
-      return [{ name: "Nextjs" }, { name: "Nuxtjs" }, { name: "Sveltekit" }];
+      return [];
     },
   },
 };
