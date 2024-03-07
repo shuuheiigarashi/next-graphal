@@ -10,11 +10,7 @@ const typeDefs = readFileSync(
 );
 
 const resolvers: Resolvers = {
-  Query: {
-    users() {
-      return [];
-    },
-  },
+  Query: {},
 };
 
 const apolloServer = new ApolloServer<Resolvers>({ typeDefs, resolvers });

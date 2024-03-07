@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 
 const SIGNIN_MUTATION =
   gql(`mutation SignIn($email: String!, $password: String!) {
-  signIn(email: $email, password: $password) {
+  sign_in_user(p_email: $email, p_password: $password) {
     email
     password
     id

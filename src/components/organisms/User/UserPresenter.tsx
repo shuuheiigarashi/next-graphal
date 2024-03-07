@@ -15,7 +15,10 @@ export const UserPresenter = ({ data, error, loading }: UserPresenterProps) => {
       <Box>
         {error && <Box>{error.message}</Box>}
         <ul>
-          {data && data.users.map((v, i) => <li key={String(i)}>{v.name}</li>)}
+          {data &&
+            data.usersCollection?.edges.map((v, i) => (
+              <li key={String(i)}>{v.node.name}</li>
+            ))}
         </ul>
       </Box>
     </>
