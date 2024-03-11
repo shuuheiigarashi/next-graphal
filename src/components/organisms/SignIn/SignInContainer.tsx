@@ -49,7 +49,7 @@ export const SignInContainer = () => {
 
       // ユーザー登録が成功した場合の処理
       console.log("User signed up:", user);
-      router.push("/signin");
+      router.push("/user");
     } catch (error) {
       // エラー処理
       console.error("Error signing up:", error);
