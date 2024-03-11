@@ -14,8 +14,13 @@ type User {
 }
 
 query ALL_USERS {
-  users {
-    name
+  usersCollection {
+    edges {
+      node {
+        id
+        name
+      }
+    }
   }
 }
 
@@ -24,7 +29,7 @@ mutation SignUpMutation(
   $password: String!
   $username: String!
 ) {
-  signUp(email: $email, password: $password, name: $username) {
+  sign_up_user(p_email: $email, p_password: $password, p_username: $username) {
     id
     name
     email
@@ -33,7 +38,7 @@ mutation SignUpMutation(
 }
 
 mutation SignIn($email: String!, $password: String!) {
-  signIn(email: $email, password: $password) {
+  sign_in_user(p_email: $email, p_password: $password) {
     email
     password
     id

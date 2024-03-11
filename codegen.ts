@@ -1,7 +1,10 @@
+import { supabaseKey, supabaseUrl } from "./src/lib/supabase";
 import { CodegenConfig } from "@graphql-codegen/cli";
 
 const config: CodegenConfig = {
-  schema: "./src/lib/documents/**/*.gql",
+  schema: `${supabaseUrl}/graphql/v1?apikey=${supabaseKey}`,
+
+  //   schema: "./src/lib/documents/**/*.gql",
   documents: ["./src/lib/documents/**/*.gql"],
   generates: {
     "./src/lib/__generated__/client/": {
