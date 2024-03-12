@@ -24,6 +24,14 @@ query ALL_USERS {
   }
 }
 
+query GetTodos {
+  todos {
+    id
+    title
+    completed
+  }
+}
+
 mutation SignUpMutation(
   $email: String!
   $password: String!
