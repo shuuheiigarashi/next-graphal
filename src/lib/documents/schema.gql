@@ -4,6 +4,7 @@ schema {
 
 type Query {
   users: [User!]!
+  todos: []
 }
 
 type User {
@@ -21,6 +22,14 @@ query ALL_USERS {
         name
       }
     }
+  }
+}
+
+query GetTodos {
+  todos {
+    id
+    title
+    completed
   }
 }
 
