@@ -1,5 +1,5 @@
-import { useMutation, gql, useQuery } from "@apollo/client";
-import { Todo, TodoPresenter } from "./TodoPresenter";
+import { useQuery, gql } from "@apollo/client";
+import { TodoPresenter } from "./TodoPresenter";
 
 const GET_TODOS = gql`
   query GetTodos {
@@ -12,16 +12,10 @@ const GET_TODOS = gql`
 `;
 
 export const TodoContainer = () => {
-  const { data: todos } = useQuery<Todo[]>("todos", async () => {
-    const response = await fetch("", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ query: GET_TODOS }),
-    });
-    const result = await response.json();
-    return result.data.todos;
-  });
-  return <TodoPresenter todos={todos} />;
+  const { loading, error, data } = useQuery(GET_TODOS);
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error.message}</p>;
+
+  return <TodoPresenter todos={data.todos} />;
 };
